@@ -1,0 +1,26 @@
+<script src="registerTemplate.js"></script>
+
+<template id="ds4-creature-heading">
+	<style>
+		#heading {
+			background: black;
+			font-family: 'Wood Stamp', sans-serif;
+			color: white;
+			font-size: 34px;
+			text-align: center;
+			padding-top: 0.1em;
+			padding-bottom: 0.15em
+		}
+	</style>
+
+	<div id="heading">
+		<content />
+	</div>
+</template>
+
+<script>
+(function(window, document) {
+	var templateName = "ds4-creature-heading";
+	registerTemplate(document, templateName, null, null, null);
+})(window, document);
+</script>

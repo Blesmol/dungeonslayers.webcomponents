@@ -4,37 +4,32 @@
 
 <template id="ds4-faehigkeit">
 	<style>
-    ::content > h4 {
-      display: inline;
-      font-weight: bold;
-		  vertical-align: top;
-    }
-
-		#content-wrap {
-		  margin-left: 0.2em;
-		  margin-top: 0.2em;
-		  vertical-align: top;
+		::content > h4 {
+			display: inline;
+			font-weight: bold;
+			vertical-align: top;
 		}
 
 		table {
-		  border-collapse: collapse;
-    }
+			border-collapse: collapse;
+			border-bottom: 2px black solid;
+		}
 
 		td {
-		  /*border: 1px black solid;*/
-    }
- 
-    #leftContainer {
-		  padding: 0.2em 0em 0em 0.2em;
+			/*border: 1px black solid;*/
+		}
+
+		#leftContainer {
+			padding: 0.2em 0em 0em 0.2em;
 		}
 
 		#rightContainer {
-		  padding: 0.2em 0.2em 0em 0em;
-    }
+			padding: 0.2em 0.2em 0em 0em;
+		}
 
-    .contentContainer {
-		  padding: 0.3em;
-    }
+		.contentContainer {
+			padding: 0.3em;
+		}
 
 	</style>
 
@@ -51,42 +46,37 @@
 			</td>
 		</tr>
 	</table>
-
-  <div id="content-wrap">
-		<content></content>
-	</div>
-
 </template>
+
 <script>
 (function(window, document) {
-  var templateName = "ds4-faehigkeit";
+	var templateName = "ds4-faehigkeit";
 
-  var attachedCallback = function() {
-    var root = this.shadowRoot;
+	var attachedCallback = function() {
+		var root = this.shadowRoot;
 
-    var leftIconElement  = root.getElementById('leftIcon');
-    var rightIconElement = root.getElementById('rightIcon');
+		var leftIconElement	 = root.getElementById('leftIcon');
+		var rightIconElement = root.getElementById('rightIcon');
 
-    var leftIcon = this.getAttribute('leftIcon');
-    var leftText = this.getAttribute('leftText');
-    var rightIcon = this.getAttribute('rightIcon');
-    var rightText = this.getAttribute('rightText');
+		var leftIcon = this.getAttribute('leftIcon');
+		var leftText = this.getAttribute('leftText');
+		var rightIcon = this.getAttribute('rightIcon');
+		var rightText = this.getAttribute('rightText');
 
-    var setIconAndText = function(target, icon, text) {
-      if (icon != null) {
-        target.setAttribute("icon", icon);
-        target.setAttribute("size", "60px"); // TODO move to style
-      }
-      if (text != null) {
-        target.textContent = text;
-      }
-    };
+		var setIconAndText = function(target, icon, text) {
+			if (icon != null) {
+				target.setAttribute("icon", icon);
+				target.setAttribute("size", "60px"); // TODO move to style
+			}
+			if (text != null) {
+				target.textContent = text;
+			}
+		};
 
-    setIconAndText(leftIconElement, leftIcon, leftText);
-    setIconAndText(rightIconElement, rightIcon, rightText);
-  };
+		setIconAndText(leftIconElement, leftIcon, leftText);
+		setIconAndText(rightIconElement, rightIcon, rightText);
+	};
 
-  registerTemplate(document, templateName, null, attachedCallback, null);
-
+	registerTemplate(document, templateName, null, attachedCallback, null);
 })(window, document);
 </script>

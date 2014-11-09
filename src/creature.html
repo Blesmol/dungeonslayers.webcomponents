@@ -1,0 +1,173 @@
+<script src="registerTemplate.js"></script>
+
+<template id="ds4-creature">
+	<style>
+		:host {
+			width: 320px;
+			/*width: 5.3cm;*/ /* regular print width */
+			display: block;
+			position: absolute; /* to allow drag+drop */
+			cursor: pointer;
+			/*zoom: 1;*/
+		}
+
+		#content-wrap {
+			display: block;
+			background: white;
+			border: 2px black solid;
+			box-shadow: 0 0 1.5em gray;
+		}
+
+		::content > hr {
+			background-color: black;
+			color: black;
+			height: 2px;
+			margin: 0px;
+			border: none;
+		}
+
+		.shaded-cell {
+			background: lightgray;
+			text-align: center;
+		}
+
+		#section-bewaffnung table {
+			width: 100%;
+			text-align: center;
+			border-collapse: collapse;
+			border-left-style: hidden;
+			border-right-style: hidden;
+			table-layout: fixed;
+		}
+
+		#section-bewaffnung th, #section-bewaffnung td {
+			border: 2px black solid;
+		}
+
+		#section-gh table {
+			width: 100%;
+			text-align: center;
+			border-collapse: collapse;
+			border: 2px black solid;
+			border-left-style: hidden;
+			border-right-style: hidden;
+			border-bottom-style: hidden;
+			table-layout: fixed;
+		}
+
+		#section-gh .shaded-cell {
+			border-left: 2px black solid;
+		}
+
+		#section-beute table {
+			width: 100%;
+			border-collapse: collapse;
+			table-layout: fixed;
+		}
+
+		#section-beute .shaded-cell {
+			border-right: 2px black solid;
+		}
+
+	</style>
+
+	<div id="content-wrap">
+
+		<div id="section-heading">
+			<content select="ds4-creature-heading"></content>
+		</div>
+
+		<div id="section-stats">
+			<content select="ds4-statblock"></content>
+		</div>
+
+		<div id="section-bewaffnung">
+			<table>
+				<tr>
+					<th class="shaded-cell">Bewaffnung</th>
+					<th class="shaded-cell">Panzerung</th>
+				</tr>
+				<tr>
+					<td>
+						<content select="ds4-bewaffnung"></content>
+					</td>
+					<td>
+						<content select="ds4-panzerung"></content>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<div id="section-faehigkeiten">
+			<content select="ds4-faehigkeit"></content>
+		</div>
+
+		<div id="section-beute">
+			<table>
+				<tbody>
+					<tr>
+						<td class="shaded-cell">Beute:</td>
+						<td id="content-beute" class="content" colspan="5"><content select="ds4-beute"></content></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div id="section-gh"> <!--anhand der ID verstecken oder anzeigen -->
+			<table>
+				<tbody>
+					<tr>
+						<td class="shaded-cell">GH:</td>
+						<td><content select="ds4-gh"></content></td>
+						<td class="shaded-cell">GK:</td>
+						<td><content select="ds4-gk"></content></td>
+						<td class="shaded-cell">EP:</td>
+						<td><content select="ds4-ep"></content></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<content></content>
+	</div>
+</template>
+
+<script>
+(function(window, document) {
+	var templateName = "ds4-creature";
+
+	var createdCallback = function() {
+		var mover = false, x, y, posx, posy, first = true;
+		this.onmousedown = function() {
+				mover = true;
+		};
+		this.onmouseup = function() {
+				mover = false;
+				first = true;
+		};
+		this.onmousemove = function(e) {
+			if (mover) {
+				if (first) {
+					x = e.offsetX;
+					y = e.offsetY;
+					first = false;
+				}
+				posx = e.pageX - x;
+				posy = e.pageY - y;
+				this.style.left = posx + 'px';
+				this.style.top = posy + 'px';
+			}
+		};
+	};
+
+	var attachedCallback = function() {
+		var root = this.shadowRoot;
+		var secBeute = root.getElementById("section-beute");
+		var contBeute = root.getElementById("content-beute");
+		//secBeute.style.display = 'none';
+		//secBeute.style.display = '';
+	};
+
+	registerTemplate(document, templateName, createdCallback, attachedCallback, null);
+})(window, document);
+</script>

@@ -5,31 +5,31 @@
 <template id="ds4-statblock">
 	<style>
 		table {
-		  width: 100%;
-		  text-align: right;
-		  #border: 1px blue dashed;
-		  table-layout: fixed;
+			width: 100%;
+			text-align: right;
+			#border: 1px blue dashed;
+			table-layout: fixed;
 		}
 
 		table td, table th {
-		  #border: 1px green solid;
+			#border: 1px green solid;
 		}
 
 		hr {
-		  background-color: black;
-		  color: black;
-		  height: 2px;
-		  margin: 0px;
-		  margin-bottom: 5px;
-		  border: none;
+			background-color: black;
+			color: black;
+			height: 2px;
+			margin: 0px;
+			margin-bottom: 5px;
+			border: none;
 		}
 
 		.value {
-		  text-align: center;
+			text-align: center;
 		}
 
 		.iconstats {
-      width: 100%;
+			width: 100%;
 		}
 
 	</style>
@@ -76,22 +76,21 @@
 			</tr>
 		</tbody>
 	</table>
-
-
 </template>
+
 <script>
 (function(window, document) {
-  var templateName = "ds4-statblock";
+	var templateName = "ds4-statblock";
 
-  var attachedCallback = function() {
-    var root = this.shadowRoot;
-    for (var i = 0; i < this.attributes.length; i++) {
-      var attribute = this.attributes[i];
-      var abilityShortName = attribute.name;
-      root.getElementById(abilityShortName).textContent = attribute.value;
-    }
-  };
+	var attachedCallback = function() {
+		var root = this.shadowRoot;
+		for (var i = 0; i < this.attributes.length; i++) {
+			var attribute = this.attributes[i];
+			var abilityShortName = attribute.name;
+			root.getElementById(abilityShortName).textContent = attribute.value;
+		}
+	};
 
-  registerTemplate(document, templateName, null, attachedCallback, null);
+	registerTemplate(document, templateName, null, attachedCallback, null);
 })(window, document);
 </script>
