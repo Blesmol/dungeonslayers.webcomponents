@@ -1,0 +1,92 @@
+<script src="registerTemplate.js"></script>
+
+<link rel="import" href="texticon.html">
+
+<template id="ds4-faehigkeit">
+	<style>
+    ::content > h4 {
+      display: inline;
+      font-weight: bold;
+		  vertical-align: top;
+    }
+
+		#content-wrap {
+		  margin-left: 0.2em;
+		  margin-top: 0.2em;
+		  vertical-align: top;
+		}
+
+		table {
+		  border-collapse: collapse;
+    }
+
+		td {
+		  /*border: 1px black solid;*/
+    }
+ 
+    #leftContainer {
+		  padding: 0.2em 0em 0em 0.2em;
+		}
+
+		#rightContainer {
+		  padding: 0.2em 0.2em 0em 0em;
+    }
+
+    .contentContainer {
+		  padding: 0.3em;
+    }
+
+	</style>
+
+	<table style="width:100%">
+		<tr>
+			<td id="leftContainer">
+				<ds4-texticon id="leftIcon" style="margin: 0px; padding: 0px;"></ds4-texticon>
+			</td>
+			<td class="contentContainer">
+				<content></content>
+			</td>
+			<td id="rightContainer">
+				<ds4-texticon id="rightIcon"></ds4-texticon>
+			</td>
+		</tr>
+	</table>
+
+  <div id="content-wrap">
+		<content></content>
+	</div>
+
+</template>
+<script>
+(function(window, document) {
+  var templateName = "ds4-faehigkeit";
+
+  var attachedCallback = function() {
+    var root = this.shadowRoot;
+
+    var leftIconElement  = root.getElementById('leftIcon');
+    var rightIconElement = root.getElementById('rightIcon');
+
+    var leftIcon = this.getAttribute('leftIcon');
+    var leftText = this.getAttribute('leftText');
+    var rightIcon = this.getAttribute('rightIcon');
+    var rightText = this.getAttribute('rightText');
+
+    var setIconAndText = function(target, icon, text) {
+      if (icon != null) {
+        target.setAttribute("icon", icon);
+        target.setAttribute("size", "60px"); // TODO move to style
+      }
+      if (text != null) {
+        target.textContent = text;
+      }
+    };
+
+    setIconAndText(leftIconElement, leftIcon, leftText);
+    setIconAndText(rightIconElement, rightIcon, rightText);
+  };
+
+  registerTemplate(document, templateName, null, attachedCallback, null);
+
+})(window, document);
+</script>

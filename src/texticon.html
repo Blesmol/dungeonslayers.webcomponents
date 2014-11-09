@@ -1,0 +1,60 @@
+<script src="registerTemplate.js"></script> 
+
+<template id="ds4-texticon">
+	<style>
+		:host {
+      display: inline-block;
+    }
+
+		#texticon {
+  		display:table-cell;
+	  	text-align:center;
+	  	vertical-align:middle;
+		  font-family: 'Wood Stamp';
+		  font-size: 1.5em;
+		  /* border: 1px black solid; */
+
+	  	background-size:contain;
+	  	background-repeat:no-repeat;
+	  	background-position:center;
+		}
+
+	</style>
+
+	<div id="texticon">
+		<content></content>
+	</div>
+</template>
+<script>
+(function(window, document) {
+  var templateName = "ds4-texticon";
+
+  var updateElement = function(tthis) {
+    var target = tthis.shadowRoot.getElementById('texticon');
+
+    var argIcon = tthis.getAttribute('icon');
+    var argSize = tthis.getAttribute('size');
+
+    if (argIcon != null) {
+      argIcon = "url(" + argIcon + ")";
+      target.style.backgroundImage = argIcon;
+    }
+    if (argSize != null) {
+      //alert(target.clientWidth+"/"+target.style.width + "/"+argSize);
+      target.style.width = argSize;
+      //alert(target.clientWidth+"/"+target.style.width);
+      target.style.height = target.clientWidth + "px";
+    }
+  };
+
+  var attachedCallback = function() {
+    updateElement(this);
+  };
+
+  var attributeChangedCallback = function(attrName, oldVal, newVal) {
+    updateElement(this);
+  };
+
+  registerTemplate(document, templateName, null, attachedCallback, attributeChangedCallback);
+})(window, document);
+</script>

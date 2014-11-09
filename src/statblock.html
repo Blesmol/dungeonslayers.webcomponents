@@ -1,0 +1,97 @@
+<script src="registerTemplate.js"></script>
+
+<link rel="import" href="texticon.html">
+
+<template id="ds4-statblock">
+	<style>
+		table {
+		  width: 100%;
+		  text-align: right;
+		  #border: 1px blue dashed;
+		  table-layout: fixed;
+		}
+
+		table td, table th {
+		  #border: 1px green solid;
+		}
+
+		hr {
+		  background-color: black;
+		  color: black;
+		  height: 2px;
+		  margin: 0px;
+		  margin-bottom: 5px;
+		  border: none;
+		}
+
+		.value {
+		  text-align: center;
+		}
+
+		.iconstats {
+      width: 100%;
+		}
+
+	</style>
+	<table>
+		<tbody>
+			<tr>
+				<th class="desc">KÖR:</th>
+				<th class="value" id="koer">0</th>
+				<th class="desc">AGI:</th>
+				<th class="value" id="agi">0</th>
+				<th class="desc">GEI:</th>
+				<th class="value" id="gei">0</th>
+			</tr>
+			<tr>
+				<td class="desc">ST:</td>
+				<td class="value" id="st">0</td>
+				<td class="desc">BE:</td>
+				<td class="value" id="be">0</td>
+				<td class="desc">VE:</td>
+				<td class="value" id="ve">0</td>
+			</tr>
+			<tr>
+				<td class="desc">HÄ:</td>
+				<td class="value" id="hae">0</td>
+				<td class="desc">GE:</td>
+				<td class="value" id="ge">0</td>
+				<td class="desc">AU:</td>
+				<td class="value" id="au">0</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<hr />
+
+	<table>
+		<tbody>
+			<tr>
+				<td><ds4-texticon id="hp"     class="iconstats" size="45px" icon="icons/stats/lebenskraft.png"> 0 </ds4-texticon> </td>
+				<td><ds4-texticon id="def"    class="iconstats" size="45px" icon="icons/stats/abwehr.png">      0 </ds4-texticon> </td>
+				<td><ds4-texticon id="ini"    class="iconstats" size="45px" icon="icons/stats/initiative.png">  0 </ds4-texticon> </td>
+				<td><ds4-texticon id="speed"  class="iconstats" size="45px" icon="icons/stats/laufen.png">      0 </ds4-texticon> </td>
+				<td><ds4-texticon id="meele"  class="iconstats" size="45px" icon="icons/stats/schlagen.png">    0 </ds4-texticon> </td>
+				<td><ds4-texticon id="ranged" class="iconstats" size="45px" icon="icons/stats/schiessen.png">   0 </ds4-texticon> </td>
+			</tr>
+		</tbody>
+	</table>
+
+
+</template>
+<script>
+(function(window, document) {
+  var templateName = "ds4-statblock";
+
+  var attachedCallback = function() {
+    var root = this.shadowRoot;
+    for (var i = 0; i < this.attributes.length; i++) {
+      var attribute = this.attributes[i];
+      var abilityShortName = attribute.name;
+      root.getElementById(abilityShortName).textContent = attribute.value;
+    }
+  };
+
+  registerTemplate(document, templateName, null, attachedCallback, null);
+})(window, document);
+</script>
