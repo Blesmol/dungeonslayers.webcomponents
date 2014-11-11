@@ -4,4 +4,4 @@ Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported
 
 Based on [Dungeonslayers](http://www.dungeonslayers.net/)
 
-Dungeonslayers, icon files and visual design © Christian Kennig
+Dungeonslayers, icon files, related texts and visual design © Christian Kennig
