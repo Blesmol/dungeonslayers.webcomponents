@@ -11,16 +11,77 @@
 			padding-top: 0.1em;
 			padding-bottom: 0.15em
 		}
+
+		table {
+			border-collapse: collapse;
+			border-bottom: 2px black solid;
+			table-layout: fixed;
+		}
+
+		#leftContainer {
+			width: 1em;
+			#padding: 0.2em 0em 0em 0.2em;
+		}
+
+		#rightContainer {
+			width: 1em;
+			padding: 0.2em 0.2em 0em 0em;
+		}
+
+		td {
+			border: 2px green solid;
+		}
 	</style>
 
 	<div id="heading">
-		<content />
+		<table style="width:100%">
+			<tr>
+				<td id="leftContainer">
+					<ds4-texticon id="leftIcon"></ds4-texticon>
+				</td>
+				<td class="contentContainer">
+					<content></content>
+				</td>
+				<td id="rightContainer">
+					<ds4-texticon id="rightIcon"></ds4-texticon>
+				</td>
+			</tr>
+		</table>
 	</div>
 </template>
 
 <script>
 (function(window, document) {
 	var templateName = "ds4-creature-heading";
-	registerTemplate(document, templateName, null, null, null);
+
+	var attachedCallback = function() {
+		var root = this.shadowRoot;
+
+		var leftIconElement	 = root.getElementById('leftIcon');
+		var rightIconElement = root.getElementById('rightIcon');
+
+		var leftIcon = this.getAttribute('type');
+		if (leftIcon != null) {
+			leftIcon = "icons/creatures/" + leftIcon + ".png";
+		}
+		var leftText = this.getAttribute('typeText');
+		var rightIcon = this.getAttribute('rightIcon');
+		var rightText = this.getAttribute('rightText');
+
+		var setIconAndText = function(target, icon, text) {
+			if (icon != null) {
+				target.setAttribute("icon", icon);
+				target.setAttribute("size", "30px"); // TODO move to style
+			}
+			if (text != null) {
+				target.textContent = text;
+			}
+		};
+
+		setIconAndText(leftIconElement, leftIcon, leftText);
+		setIconAndText(rightIconElement, rightIcon, rightText);
+	};
+
+	registerTemplate(document, templateName, null, attachedCallback, null);
 })(window, document);
 </script>
