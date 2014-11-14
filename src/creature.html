@@ -18,7 +18,7 @@
 			width: 320px;
 			/*width: 5.3cm;*/ /* regular print width */
 			display: block;
-			position: absolute; /* to allow drag+drop */
+			position: relative; /* to allow drag+drop */
 			cursor: pointer;
 			/*zoom: 1;*/
 		}
@@ -60,7 +60,6 @@
 			width: 100%;
 			text-align: center;
 			border-collapse: collapse;
-			border: 2px black solid;
 			border-left-style: hidden;
 			border-right-style: hidden;
 			border-bottom-style: hidden;
@@ -71,16 +70,29 @@
 			border-left: 2px black solid;
 		}
 
+		#section-herstellung table {
+			width: 100%;
+			border-collapse: collapse;
+			table-layout: fixed;
+			border-bottom: 2px black solid;
+		}
+
+		#section-herstellung .shaded-cell {
+			border-right: 2px black solid;
+			text-align: right;
+		}
+
 		#section-beute table {
 			width: 100%;
 			border-collapse: collapse;
 			table-layout: fixed;
+			border-bottom: 2px black solid;
 		}
 
 		#section-beute .shaded-cell {
 			border-right: 2px black solid;
+			text-align: right;
 		}
-
 	</style>
 
 	<div id="content-wrap">
@@ -120,6 +132,17 @@
 					<tr>
 						<td class="shaded-cell">Beute:</td>
 						<td id="content-beute" class="content" colspan="5"><content select="ds4-beute"></content></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div id="section-herstellung">
+			<table>
+				<tbody>
+					<tr>
+						<td class="shaded-cell" colspan="2">Herstellung:</td>
+						<td id="content-beute" class="content" colspan="4"><content select="ds4-herstellung"></content></td>
 					</tr>
 				</tbody>
 			</table>
