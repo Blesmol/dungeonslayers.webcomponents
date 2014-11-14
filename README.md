@@ -1,4 +1,4 @@
 dungeonslayers.webcomponents
 ============================
 
-Web components to easily create and illustrate various things for the Dungenslayers RPG system
+Web components to easily create and illustrate various things for the [Dungenslayers RPG system](http://www.dungeonslayers.net/)
