@@ -65,7 +65,7 @@
 
 		var leftIcon = this.getAttribute('type');
 		if (leftIcon != null) {
-			leftIcon = "icons/creatures/" + leftIcon + ".png";
+			leftIcon = "icons/creatures/" + leftIcon.toLowerCase() + ".png";
 		}
 		var leftText = this.getAttribute('typeText');
 		var rightIcon = this.getAttribute('rightIcon');
