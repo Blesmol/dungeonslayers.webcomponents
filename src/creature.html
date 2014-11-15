@@ -131,7 +131,7 @@
 				<tbody>
 					<tr>
 						<td class="shaded-cell">Beute:</td>
-						<td id="content-beute" class="content" colspan="5"><content select="ds4-beute"></content></td>
+						<td colspan="5"><content select="ds4-beute"></content></td>
 					</tr>
 				</tbody>
 			</table>
@@ -142,13 +142,13 @@
 				<tbody>
 					<tr>
 						<td class="shaded-cell" colspan="2">Herstellung:</td>
-						<td id="content-beute" class="content" colspan="4"><content select="ds4-herstellung"></content></td>
+						<td colspan="4"><content select="ds4-herstellung"></content></td>
 					</tr>
 				</tbody>
 			</table>
 		</div>
 
-		<div id="section-gh"> <!--anhand der ID verstecken oder anzeigen -->
+		<div id="section-gh">
 			<table>
 				<tbody>
 					<tr>
@@ -168,10 +168,29 @@
 </template>
 
 <script>
+function hideIfNotNeeded(root, elementToHide) {
+	var el = root.getElementById(elementToHide);
+	if (el == null) { alert("Cannot find element '"+elementToHide+"'"); }
+
+	var hasContent = false;
+	var contentNodes = el.getElementsByTagName("content");
+	for (var i = 0; i < contentNodes.length; ++i) {
+		if (contentNodes[i].getDistributedNodes().length > 0) {
+			hasContent = true;
+			break;
+		}
+	}
+
+	if (! hasContent) {
+		el.style.display="none";
+	}
+}
+
 (function(window, document) {
 	var templateName = "ds4-creature";
 
 	var createdCallback = function() {
+		// code for drag'n'drop
 		var mover = false, x, y, posx, posy, first = true;
 		this.onmousedown = function() {
 				mover = true;
@@ -196,11 +215,18 @@
 	};
 
 	var attachedCallback = function() {
-		var root = this.shadowRoot;
-		var secBeute = root.getElementById("section-beute");
-		var contBeute = root.getElementById("content-beute");
-		//secBeute.style.display = 'none';
-		//secBeute.style.display = '';
+		// automatically hide sections without content subnodes
+		var sections = [ "section-heading",
+		                 "section-stats",
+		                 "section-bewaffnung",
+		                 "section-faehigkeiten",
+		                 "section-beute",
+		                 "section-herstellung",
+		                 "section-gh"
+		               ];
+		for (var i = 0; i < sections.length; ++i) {
+			hideIfNotNeeded(this.shadowRoot, sections[i]);
+		}
 	};
 
 	registerTemplate(document, templateName, createdCallback, attachedCallback, null);
