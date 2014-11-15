@@ -15,34 +15,29 @@
 			border-bottom: 2px black solid;
 		}
 
-		td {
-			/*border: 1px black solid;*/
-		}
-
-		#leftContainer {
-			padding: 0.2em 0em 0em 0.2em;
-		}
-
-		#rightContainer {
-			padding: 0.2em 0.2em 0em 0em;
-		}
-
-		.contentContainer {
+		#contentContainer {
+			font-size: 0.8em;
 			padding: 0.3em;
+			vertical-align: top;
 		}
 
+		#leftIcon {
+			float: left;
+			padding-right: 0.2em;
+		}
+
+		#rightIcon {
+			float: right;
+			padding-left: 0.2em;
+		}
 	</style>
 
 	<table style="width:100%">
 		<tr>
-			<td id="leftContainer">
+			<td id="contentContainer">
 				<ds-texticon id="leftIcon"></ds-texticon>
-			</td>
-			<td class="contentContainer">
-				<content></content>
-			</td>
-			<td id="rightContainer">
 				<ds-texticon id="rightIcon"></ds-texticon>
+				<content></content>
 			</td>
 		</tr>
 	</table>
@@ -66,7 +61,7 @@
 		var setIconAndText = function(target, icon, text) {
 			if (icon != null) {
 				target.setAttribute("icon", icon);
-				target.setAttribute("size", "60px"); // TODO move to style
+				target.setAttribute("size", "50px"); // TODO move to style
 			}
 			if (text != null) {
 				target.textContent = text;
