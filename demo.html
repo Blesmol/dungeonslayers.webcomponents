@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>Dungeonslayers 4 Webcomponents Demo</title>
+
+		<link rel="import" href="src/kreatur.html" />
+
+		<style>
+			@font-face {
+				font-family: 'Wood Stamp';
+				font-style: normal;
+				font-weight: normal;
+				src: local('Wood Stamp'), url('fonts/Woodstamp.otf') format('opentype');
+			}
+
+			.creature {
+			  float: left;
+			}
+		</style>
+	</head>
+
+	<body>
+		<script>
+			// seems we need at least one script section in chrome to trigger js execution
+			// even if it is empty
+    </script>
+
+
+<div class="creature">
+	<ds-kreatur>
+		<ds-kreatur-name type="Tier">Monsterspinne</ds-kreatur-name>
+
+		<ds-stats stat-koer="12"  stat-agi="9"  stat-gei="1"
+						  stat-st="3"     stat-be="2"   stat-ve="0"
+							stat-hae="2"    stat-ge="4"   stat-au="0"
+							stat-hp="72"     stat-def="15"   stat-ini="11"
+							stat-speed="8,5" stat-meele="17" stat-ranged="15">
+		</ds-stats>
+
+		<ds-bewaffnung>
+			Spinnenbiss (WB+2;GA-2) <br />
+			Netzflüssigkeit (WB+2)
+		</ds-bewaffnung>
+		<ds-panzerung>Dicke Spinnenhaut (PA+1)</ds-panzerung>
+
+		<ds-faehigkeit leftIcon="icons/feats/kletterlaeufer.png">
+			<h4>Kletterläufer:</h4>
+
+			Kann mit normaler Laufen-Geschwindigkeit an Wänden und Decken
+			aktionsfrei klettern.  Kann auf Gegner herabfallen, wobei
+			Schlagen um KOR erhöht wird.
+		</ds-faehigkeit>
+
+		<ds-faehigkeit leftIcon="icons/feats/laehmungseffekt.png">
+			<h4>Lähmungseffekt:</h4>
+
+			Netzflüssigkeit (nur alle 10 Kampfrunden einsetzbar) macht Ziel
+			für Probenergebnis in Kampfrunden bewegungsunfähig, sofern ihm
+			nicht KÖR+ST gelingt.
+		</ds-faehigkeit>
+
+		<ds-faehigkeit leftIcon="icons/feats/natuerliche_waffen.png">
+			<h4>Natürliche Waffen:</h4>
+
+			Bei einem Schlagen-Patzer gegen einen Bewaffneten wird dessen
+			Waffe getroffen. Der Angegriffene würfelt augenblicklich &
+			aktionsfrei einen Angriff mit seiner Waffe gegen die patzende
+			Kreatur.
+		</ds-faehigkeit>
+
+		<ds-beute>Trophäe (BW 1A:12)</ds-beute>
+
+		<ds-gh>11</ds-gh>
+		<ds-gk>gr</ds-gk>
+		<ds-ep>165</ds-ep>
+	</ds-kreatur>
+</div>
+
+
+	</body>
+</html>
