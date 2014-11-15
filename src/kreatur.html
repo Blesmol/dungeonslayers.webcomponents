@@ -4,7 +4,7 @@
 <link rel="import" href="faehigkeit.html" />
 <link rel="import" href="faehigkeit-dunkelsicht.html" />
 <link rel="import" href="statblock.html" />
-<link rel="import" href="creature-heading.html" />
+<link rel="import" href="kreatur-name.html" />
 <link rel="import" href="beute.html" />
 <link rel="import" href="bewaffnung.html" />
 <link rel="import" href="panzerung.html" />
@@ -12,7 +12,7 @@
 <link rel="import" href="gk.html" />
 <link rel="import" href="ep.html" />
 
-<template id="ds-creature">
+<template id="ds-kreatur">
 	<style>
 		:host {
 			width: 320px;
@@ -99,7 +99,7 @@
 	<div id="content-wrap">
 
 		<div id="section-heading">
-			<content select="ds-creature-heading"></content>
+			<content select="ds-kreatur-name"></content>
 		</div>
 
 		<div id="section-stats">
@@ -188,7 +188,7 @@ function hideIfNotNeeded(root, elementToHide) {
 }
 
 (function(window, document) {
-	var templateName = "ds-creature";
+	var templateName = "ds-kreatur";
 
 	var createdCallback = function() {
 		// code for drag'n'drop
