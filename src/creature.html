@@ -12,7 +12,7 @@
 <link rel="import" href="gk.html" />
 <link rel="import" href="ep.html" />
 
-<template id="ds4-creature">
+<template id="ds-creature">
 	<style>
 		:host {
 			width: 320px;
@@ -98,11 +98,11 @@
 	<div id="content-wrap">
 
 		<div id="section-heading">
-			<content select="ds4-creature-heading"></content>
+			<content select="ds-creature-heading"></content>
 		</div>
 
 		<div id="section-stats">
-			<content select="ds4-statblock"></content>
+			<content select="ds-statblock"></content>
 		</div>
 
 		<div id="section-bewaffnung">
@@ -113,17 +113,17 @@
 				</tr>
 				<tr>
 					<td>
-						<content select="ds4-bewaffnung"></content>
+						<content select="ds-bewaffnung"></content>
 					</td>
 					<td>
-						<content select="ds4-panzerung"></content>
+						<content select="ds-panzerung"></content>
 					</td>
 				</tr>
 			</table>
 		</div>
 
 		<div id="section-faehigkeiten">
-			<content select="ds4-faehigkeit"></content>
+			<content select="ds-faehigkeit"></content>
 		</div>
 
 		<div id="section-beute">
@@ -131,7 +131,7 @@
 				<tbody>
 					<tr>
 						<td class="shaded-cell">Beute:</td>
-						<td colspan="5"><content select="ds4-beute"></content></td>
+						<td colspan="5"><content select="ds-beute"></content></td>
 					</tr>
 				</tbody>
 			</table>
@@ -142,7 +142,7 @@
 				<tbody>
 					<tr>
 						<td class="shaded-cell" colspan="2">Herstellung:</td>
-						<td colspan="4"><content select="ds4-herstellung"></content></td>
+						<td colspan="4"><content select="ds-herstellung"></content></td>
 					</tr>
 				</tbody>
 			</table>
@@ -153,11 +153,11 @@
 				<tbody>
 					<tr>
 						<td class="shaded-cell">GH:</td>
-						<td><content select="ds4-gh"></content></td>
+						<td><content select="ds-gh"></content></td>
 						<td class="shaded-cell">GK:</td>
-						<td><content select="ds4-gk"></content></td>
+						<td><content select="ds-gk"></content></td>
 						<td class="shaded-cell">EP:</td>
-						<td><content select="ds4-ep"></content></td>
+						<td><content select="ds-ep"></content></td>
 					</tr>
 				</tbody>
 			</table>
@@ -187,7 +187,7 @@ function hideIfNotNeeded(root, elementToHide) {
 }
 
 (function(window, document) {
-	var templateName = "ds4-creature";
+	var templateName = "ds-creature";
 
 	var createdCallback = function() {
 		// code for drag'n'drop

@@ -2,7 +2,7 @@
 
 <link rel="import" href="texticon.html">
 
-<template id="ds4-faehigkeit">
+<template id="ds-faehigkeit">
 	<style>
 		::content > h4 {
 			display: inline;
@@ -36,13 +36,13 @@
 	<table style="width:100%">
 		<tr>
 			<td id="leftContainer">
-				<ds4-texticon id="leftIcon"></ds4-texticon>
+				<ds-texticon id="leftIcon"></ds-texticon>
 			</td>
 			<td class="contentContainer">
 				<content></content>
 			</td>
 			<td id="rightContainer">
-				<ds4-texticon id="rightIcon"></ds4-texticon>
+				<ds-texticon id="rightIcon"></ds-texticon>
 			</td>
 		</tr>
 	</table>
@@ -50,7 +50,7 @@
 
 <script>
 (function(window, document) {
-	var templateName = "ds4-faehigkeit";
+	var templateName = "ds-faehigkeit";
 
 	var attachedCallback = function() {
 		var root = this.shadowRoot;

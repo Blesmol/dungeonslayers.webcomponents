@@ -2,7 +2,7 @@
 
 <link rel="import" href="texticon.html">
 
-<template id="ds4-statblock">
+<template id="ds-statblock">
 	<style>
 		table {
 			width: 100%;
@@ -67,12 +67,12 @@
 	<table>
 		<tbody>
 			<tr>
-				<td><ds4-texticon id="hp"     class="iconstats" size="45px" icon="icons/stats/lebenskraft.png"> 0 </ds4-texticon> </td>
-				<td><ds4-texticon id="def"    class="iconstats" size="45px" icon="icons/stats/abwehr.png">      0 </ds4-texticon> </td>
-				<td><ds4-texticon id="ini"    class="iconstats" size="45px" icon="icons/stats/initiative.png">  0 </ds4-texticon> </td>
-				<td><ds4-texticon id="speed"  class="iconstats" size="45px" icon="icons/stats/laufen.png">      0 </ds4-texticon> </td>
-				<td><ds4-texticon id="meele"  class="iconstats" size="45px" icon="icons/stats/schlagen.png">    0 </ds4-texticon> </td>
-				<td><ds4-texticon id="ranged" class="iconstats" size="45px" icon="icons/stats/schiessen.png">   0 </ds4-texticon> </td>
+				<td><ds-texticon id="hp"     class="iconstats" size="45px" icon="icons/stats/lebenskraft.png"> 0 </ds-texticon> </td>
+				<td><ds-texticon id="def"    class="iconstats" size="45px" icon="icons/stats/abwehr.png">      0 </ds-texticon> </td>
+				<td><ds-texticon id="ini"    class="iconstats" size="45px" icon="icons/stats/initiative.png">  0 </ds-texticon> </td>
+				<td><ds-texticon id="speed"  class="iconstats" size="45px" icon="icons/stats/laufen.png">      0 </ds-texticon> </td>
+				<td><ds-texticon id="meele"  class="iconstats" size="45px" icon="icons/stats/schlagen.png">    0 </ds-texticon> </td>
+				<td><ds-texticon id="ranged" class="iconstats" size="45px" icon="icons/stats/schiessen.png">   0 </ds-texticon> </td>
 			</tr>
 		</tbody>
 	</table>
@@ -80,7 +80,7 @@
 
 <script>
 (function(window, document) {
-	var templateName = "ds4-statblock";
+	var templateName = "ds-statblock";
 
 	var attachedCallback = function() {
 		var root = this.shadowRoot;

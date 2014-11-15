@@ -1,6 +1,6 @@
 <script src="registerTemplate.js"></script>
 
-<template id="ds4-creature-heading">
+<template id="ds-creature-heading">
 	<style>
 		#heading {
 			background: black;
@@ -40,13 +40,13 @@
 		<table style="width:100%">
 			<tr>
 				<td id="leftContainer" class="sideContainer">
-					<ds4-texticon id="leftIcon"></ds4-texticon>
+					<ds-texticon id="leftIcon"></ds-texticon>
 				</td>
 				<td class="contentContainer">
 					<content></content>
 				</td>
 				<td id="rightContainer" class="sideContainer">
-					<ds4-texticon id="rightIcon"></ds4-texticon>
+					<ds-texticon id="rightIcon"></ds-texticon>
 				</td>
 			</tr>
 		</table>
@@ -55,7 +55,7 @@
 
 <script>
 (function(window, document) {
-	var templateName = "ds4-creature-heading";
+	var templateName = "ds-creature-heading";
 
 	var attachedCallback = function() {
 		var root = this.shadowRoot;
