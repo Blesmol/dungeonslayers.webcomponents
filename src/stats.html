@@ -2,7 +2,7 @@
 
 <link rel="import" href="texticon.html">
 
-<template id="ds-statblock">
+<template id="ds-stats">
 	<style>
 		table {
 			width: 100%;
@@ -80,14 +80,22 @@
 
 <script>
 (function(window, document) {
-	var templateName = "ds-statblock";
+	var templateName = "ds-stats";
 
 	var attachedCallback = function() {
 		var root = this.shadowRoot;
-		for (var i = 0; i < this.attributes.length; i++) {
+		for (var i = 0; i < this.attributes.length; ++i) {
 			var attribute = this.attributes[i];
-			var abilityShortName = attribute.name;
-			root.getElementById(abilityShortName).textContent = attribute.value;
+			var attributePrefix = attribute.name.substring(0,5);
+			var statName = attribute.name.substring(5);
+			if (attributePrefix != "stat-") { continue; }
+
+			var statNode = root.getElementById(statName);
+			if (statNode != null) {
+				statNode.textContent = attribute.value;
+			} else {
+				alert("No stat with name '"+statName+"'");
+			}
 		}
 	};
 
