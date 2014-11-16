@@ -3,47 +3,52 @@
 <template id="ds-kreatur-name">
 	<style>
 		#heading {
+			position:relative;
 			background: black;
-			font-family: 'Wood Stamp', 'Anton', sans-serif;
 			color: white;
 			font-size: 2em;
+			font-family: 'Wood Stamp', 'Anton', sans-serif;
 			text-align: center;
-			padding-top: 0em;
-			padding-bottom: 0em
+			line-height: 100%;
 		}
 
-		table {
-			border-collapse: collapse;
-			border-bottom: 2px black solid;
-			table-layout: fixed;
+		#typeIconSection {
+			position: absolute;
+			top: 0px;
+			left: 0px;
 		}
 
-		.sideContainer {
-			width: 2.5em;
-			padding: 0em;
-			vertical-align: top;
-			font-size: 0.4em;
+		#typeIcon {
+			height: 1em;
 		}
 
-		#leftContainer {
-			text-algin: left;
+		#creatureName {
+			text-align: center;
+			width: 75%;
+			margin: 0px auto;
+			padding: 0.1em;
+		}
+
+		#classSection {
+			position: absolute;
+			top: 0.1em;
+			right: 0.2em;
+			text-align: center;
+			font-size: 0.6em;
+			line-height: 90%;
 		}
 	</style>
 
 	<div id="heading">
-		<table style="width:100%">
-			<tr>
-				<td id="leftContainer" class="sideContainer">
-					<ds-texticon id="leftIcon"></ds-texticon>
-				</td>
-				<td class="contentContainer">
-					<content></content>
-				</td>
-				<td id="rightContainer" class="sideContainer">
-					<ds-texticon id="rightIcon" fontSize="1.5em"></ds-texticon>
-				</td>
-			</tr>
-		</table>
+		<div id="typeIconSection">
+			<img id="typeIcon" /> <!-- optionally set by type attribute -->
+		</div>
+		<div id="creatureName">
+			<content></content>
+		</div>
+		<div id="classSection">
+			<!-- optionally filled by classText attribute  -->
+		</div>
 	</div>
 </template>
 
@@ -54,29 +59,17 @@
 	var attachedCallback = function() {
 		var root = this.shadowRoot;
 
-		var leftIconElement	 = root.getElementById('leftIcon');
-		var rightIconElement = root.getElementById('rightIcon');
-
-		var leftIcon = this.getAttribute('type');
-		if (leftIcon != null) {
-			leftIcon = "icons/creatures/" + leftIcon.toLowerCase() + ".png";
+		var typeIcon = root.getElementById('typeIcon');
+		var typeAttribute = this.getAttribute('type');
+		if (typeAttribute != null) {
+			typeIcon.src = "icons/creatures/" + typeAttribute.toLowerCase() + ".png";
 		}
-		var leftText = this.getAttribute('typeText');
-		var rightIcon = this.getAttribute('rightIcon');
-		var rightText = this.getAttribute('rightText');
 
-		var setIconAndText = function(target, icon, text) {
-			if (icon != null) {
-				target.setAttribute("icon", icon);
-				target.setAttribute("size", "30px"); // TODO move to style
-			}
-			if (text != null) {
-				target.textContent = text;
-			}
-		};
-
-		setIconAndText(leftIconElement, leftIcon, leftText);
-		setIconAndText(rightIconElement, rightIcon, rightText);
+		var classSection = root.getElementById('classSection');
+		var classAttribute = this.getAttribute('classText');
+		if (classAttribute != null) {
+			classSection.textContent = classAttribute;
+		}
 	};
 
 	registerTemplate(document, templateName, null, attachedCallback, null);
