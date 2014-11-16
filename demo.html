@@ -4,6 +4,8 @@
 		<meta charset="utf-8"/>
 		<title>Dungeonslayers 4 Webcomponents Demo</title>
 
+		<link href="http://fonts.googleapis.com/css?family=Anton" rel="stylesheet" type="text/css">
+
 		<link rel="import" href="src/kreatur.html" />
 
 		<style>
@@ -15,7 +17,7 @@
 			}
 
 			.creature {
-			  float: left;
+				float: left;
 			}
 		</style>
 	</head>
@@ -24,18 +26,17 @@
 		<script>
 			// seems we need at least one script section in chrome to trigger js execution
 			// even if it is empty
-    </script>
-
+		</script>
 
 <div class="creature">
 	<ds-kreatur>
 		<ds-kreatur-name type="Tier">Monsterspinne</ds-kreatur-name>
 
-		<ds-stats stat-koer="12"  stat-agi="9"  stat-gei="1"
-						  stat-st="3"     stat-be="2"   stat-ve="0"
-							stat-hae="2"    stat-ge="4"   stat-au="0"
-							stat-hp="72"     stat-def="15"   stat-ini="11"
-							stat-speed="8,5" stat-meele="17" stat-ranged="15">
+		<ds-stats stat-koer="12"   stat-agi="9"    stat-gei="1"
+		          stat-st="3"      stat-be="2"     stat-ve="0"
+		          stat-hae="2"     stat-ge="4"     stat-au="0"
+		          stat-hp="72"     stat-def="15"   stat-ini="11"
+		          stat-speed="8,5" stat-meele="17" stat-ranged="15">
 		</ds-stats>
 
 		<ds-bewaffnung>
@@ -79,20 +80,20 @@
 
 <div class="creature">
 	<ds-kreatur>
-		<ds-kreatur-name type="Humanoid" rightText="Nek St 10">Ankmatur (S.141)</ds-kreatur-name>
+		<ds-kreatur-name type="Humanoid" classText="Nek St 10">Ankmatur (S.141)</ds-kreatur-name>
 
 		<ds-stats stat-koer="4"     stat-agi="8"   stat-gei="8"
-						  stat-st="0"       stat-be="0"    stat-ve="3+3"
-							stat-hae="3+1"    stat-ge="2"    stat-au="2+3"
-							stat-hp="18+1"    stat-def="10"  stat-ini="8"
-							stat-speed="5"    stat-meele="7" stat-ranged="0">
+		          stat-st="0"       stat-be="0"    stat-ve="3+3"
+		          stat-hae="3+1"    stat-ge="2"    stat-au="2+3"
+		          stat-hp="18+1"    stat-def="10"  stat-ini="8"
+		          stat-speed="5"    stat-meele="7" stat-ranged="0">
 		</ds-stats>
 
 		<ds-bewaffnung>mag. Langschw. +1 (WB+3)</ds-bewaffnung>
 		<ds-panzerung>mag. Robe +2 (PA+2)</ds-panzerung>
 
 		<ds-faehigkeit leftIcon="icons/feats/zauber.png" leftText="12"
-									 rightIcon="icons/feats/zielzauber.png" rightText="13">
+		               rightIcon="icons/feats/zielzauber.png" rightText="13">
 			<h4>Zauber:</h4>
 			<i>
 				<b>Feuerball</b>, Kontrollieren, Öffnen, Schattenpfeil,
@@ -113,10 +114,10 @@
 		<ds-kreatur-name type="Humanoid">Shekz (S.140)</ds-kreatur-name>
 
 		<ds-stats stat-koer="3"     stat-agi="5"   stat-gei="7"
-						  stat-st="0"       stat-be="0"    stat-ve="3+1"
-							stat-hae="0+1"    stat-ge="2"    stat-au="3+1"
-							stat-hp="7+1"     stat-def="4"   stat-ini="5"
-							stat-speed="3,5"  stat-meele="0" stat-ranged="0">
+		          stat-st="0"       stat-be="0"    stat-ve="3+1"
+		          stat-hae="0+1"    stat-ge="2"    stat-au="3+1"
+		          stat-hp="7+1"     stat-def="4"   stat-ini="5"
+		          stat-speed="3,5"  stat-meele="0" stat-ranged="0">
 		</ds-stats>
 
 		<ds-bewaffnung>Ast / Messer (WB+0)</ds-bewaffnung>
