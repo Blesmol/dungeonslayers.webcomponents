@@ -13,28 +13,31 @@
 		table {
 			border-collapse: collapse;
 			border-bottom: 2px black solid;
-		}
-
-		#contentContainer {
-			font-size: 0.8em;
 			padding: 0.3em;
 			vertical-align: top;
+			width: 100%;
+			font-size: 0.8em;
+			line-height: 110%;
 		}
 
 		#leftIcon {
 			float: left;
+			padding-left: 0.1em;
+			padding-top: 0.1em;
 			padding-right: 0.2em;
 		}
 
 		#rightIcon {
 			float: right;
 			padding-left: 0.2em;
+			padding-right: 0.1em;
+			padding-top: 0.1em;
 		}
 	</style>
 
-	<table style="width:100%">
+	<table>
 		<tr>
-			<td id="contentContainer">
+			<td>
 				<ds-texticon id="leftIcon"></ds-texticon>
 				<ds-texticon id="rightIcon"></ds-texticon>
 				<content></content>
