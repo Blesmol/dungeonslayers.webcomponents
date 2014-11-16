@@ -11,7 +11,8 @@
 			text-align:center;
 			vertical-align:middle;
 			font-family: 'Wood Stamp';
-			font-size: 1.75em;
+			/*font-size: 1.75em;*/
+			font-size: 28px;
 			/* border: 1px black solid; */
 
 			background-size:contain;
@@ -34,6 +35,7 @@
 
 		var argIcon = tthis.getAttribute('icon');
 		var argSize = tthis.getAttribute('size');
+		var argFontSize = tthis.getAttribute('fontSize');
 
 		if (argIcon != null) {
 			argIcon = "url(" + argIcon + ")";
@@ -44,6 +46,9 @@
 			target.style.width = argSize;
 			//alert(target.clientWidth+"/"+target.style.width);
 			target.style.height = target.clientWidth + "px";
+		}
+		if (argFontSize != null) {
+			target.style.fontSize = argFontSize;
 		}
 	};
 

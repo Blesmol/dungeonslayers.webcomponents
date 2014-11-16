@@ -1,0 +1,24 @@
+<script src="registerTemplate.js"></script>
+
+<link rel="import" href="faehigkeit.html">
+
+<template id="ds-faehigkeit-dunkelsicht" class="ds-faehigkeiten-content">
+	<ds-faehigkeit leftIcon="icons/feats/dunkelsicht.png">
+		<h4>Dunkelsicht:</h4>
+		Kann selbst in völliger Dunkelheit noch sehen
+	</ds-faehigkeit>
+</template>
+
+<script>
+(function(window, document) {
+  var featClass = "ds-faehigkeiten-content";
+
+  var thisDoc = (document.currentScript || document._currentScript).ownerDocument;
+  var featList = thisDoc.getElementsByClassName(featClass);
+
+  for (var i = 0; i < featList.length; ++i) {
+    var featId = featList[i].id;
+    registerTemplate(document, featId, null, null, null);
+  }
+})(window, document);
+</script>
