@@ -5,6 +5,8 @@ HTML-Webkomponenten, um auf einfache Art und Weise Dinge aus dem [Dungenslayers]
 
 Aktuell wird nur die Erstellung von Monstern und NPCs (oder zusammengefasst: Kreaturen) unterstützt.
 
+Eine Demo befindet sich [hier](https://blesmol.github.io/dungeonslayers.webcomponents/demo.html), funktioniert aber momentan nur mit aktuellen Versionen des Chrome-Browsers. Support für weitere Browser folgt, sobald diese die neuen Features des HTML-Standards entsprechend umgesetzt haben. Außerdem wird empfohlen, sich die WoodStamp-Schriftart lokal zu installieren.
+
 Beispielcode:
 ```
  <ds-kreatur>
